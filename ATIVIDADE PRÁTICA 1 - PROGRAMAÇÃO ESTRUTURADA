@@ -1,0 +1,130 @@
+import java.util.Scanner;
+
+public class ExerciciosJava {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int opcao;
+
+        do {
+            System.out.println("\nEscolha uma opção:");
+            System.out.println("1. Verificar número positivo/negativo");
+            System.out.println("2. Comparar dois números");
+            System.out.println("3. Calcular área (quadrado/círculo)");
+            System.out.println("4. Tabuada");
+            System.out.println("5. Verificar par ou ímpar");
+            System.out.println("6. Calcular fatorial");
+            System.out.println("7. Faixa etária");
+            System.out.println("8. Soma dos números ímpares");
+            System.out.println("9. Lista de nomes");
+            System.out.println("10. Senha Secreta");
+            System.out.println("0. Sair");
+            System.out.print("Escolha: ");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.print("Digite um número: ");
+                    int num = scanner.nextInt();
+                    System.out.println(num >= 0 ? "Número positivo" : "Número negativo");
+                    break;
+
+                case 2:
+                    System.out.print("Digite o primeiro número: ");
+                    int num1 = scanner.nextInt();
+                    System.out.print("Digite o segundo número: ");
+                    int num2 = scanner.nextInt();
+                    if (num1 == num2) System.out.println("Os números são iguais");
+                    else if (num1 > num2) System.out.println("O primeiro número é maior");
+                    else System.out.println("O segundo número é maior");
+                    break;
+
+                case 3:
+                    System.out.println("1. Quadrado  2. Círculo");
+                    int escolha = scanner.nextInt();
+                    if (escolha == 1) {
+                        System.out.print("Digite o lado do quadrado: ");
+                        double lado = scanner.nextDouble();
+                        System.out.println("Área: " + (lado * lado));
+                    } else {
+                        System.out.print("Digite o raio do círculo: ");
+                        double raio = scanner.nextDouble();
+                        System.out.println("Área: " + (Math.PI * raio * raio));
+                    }
+                    break;
+
+                case 4:
+                    System.out.print("Digite um número para a tabuada: ");
+                    int tabuada = scanner.nextInt();
+                    for (int i = 1; i <= 10; i++) System.out.println(tabuada + " x " + i + " = " + (tabuada * i));
+                    break;
+
+                case 5:
+                    System.out.print("Digite um número: ");
+                    int valor = scanner.nextInt();
+                    System.out.println(valor % 2 == 0 ? "Par" : "Ímpar");
+                    break;
+
+                case 6:
+                    System.out.print("Digite um número para o fatorial: ");
+                    int fatorial = scanner.nextInt();
+                    int resultado = 1;
+                    for (int i = fatorial; i > 1; i--) resultado *= i;
+                    System.out.println("Fatorial: " + resultado);
+                    break;
+
+                case 7:
+                    System.out.print("Digite a idade: ");
+                    int idade = scanner.nextInt();
+                    if (idade < 18) System.out.println("Menor de idade");
+                    else if (idade < 60) System.out.println("Adulto");
+                    else System.out.println("Idoso");
+                    break;
+
+                case 8:
+                    System.out.print("Digite um número inteiro: ");
+                    int n = scanner.nextInt();
+                    int soma = 0;
+                    for (int i = 0, impar = 1; i < n; i++, impar += 2) soma += impar;
+                    System.out.println("Soma dos primeiros " + n + " números ímpares: " + soma);
+                    break;
+
+                case 9:
+                    String[] nomes = new String[5];
+                    System.out.println("Digite 5 nomes:");
+                    scanner.nextLine(); 
+                    for (int i = 0; i < 5; i++) nomes[i] = scanner.nextLine();
+                    System.out.print("Digite um nome para verificar: ");
+                    String nomeProcurado = scanner.nextLine();
+                    boolean encontrado = false;
+                    for (String nome : nomes) {
+                        if (nome.equalsIgnoreCase(nomeProcurado)) {
+                            encontrado = true;
+                            break;
+                        }
+                    }
+                    System.out.println(encontrado ? "Nome encontrado!" : "Nome não encontrado!");
+                    break;
+
+                case 10:
+                    final String SENHA_SECRETA = "Java123";
+                    String senha;
+                    do {
+                        System.out.print("Digite a senha: ");
+                        senha = scanner.next();
+                        if (!senha.equals(SENHA_SECRETA)) System.out.println("Senha incorreta. Tente novamente!");
+                    } while (!senha.equals(SENHA_SECRETA));
+                    System.out.println("Acesso permitido!");
+                    break;
+
+                case 0:
+                    System.out.println("Saindo... Valeu por testar!");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida! Escolha um número entre 0 e 10.");
+            }
+        } while (opcao != 0);
+
+        scanner.close();
+    }
+}
