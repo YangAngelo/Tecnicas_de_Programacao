@@ -1,0 +1,124 @@
+Atividade prtatica 2
+
+1. Soma de Matrizes (3x3)
+
+import java.util.Scanner;
+
+public class SomaMatrizes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[][] matriz1 = new int[3][3];
+        int[][] matriz2 = new int[3][3];
+        int[][] resultado = new int[3][3];
+
+        System.out.println("Digite os números da primeira matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz1[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("Digite os números da segunda matriz 3x3:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                matriz2[i][j] = scanner.nextInt();
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+            }
+        }
+
+        System.out.println("Resultado da soma das matrizes:");
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(resultado[i][j] + " ");
+            }
+            System.out.println();
+        }
+        scanner.close();
+    }
+}
+
+
+ 2. Verificação de Login e Senha em Matriz (6x2)
+
+import java.util.Scanner;
+
+public class VerificaLogin {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[][] usuarios = {
+            {"usuario1", "senha123"},
+            {"admin", "admin123"},
+            {"joao", "1234"},
+            {"maria", "abcd"},
+            {"teste", "teste123"},
+            {"user", "pass"}
+        };
+        System.out.print("Digite seu login: ");
+        String login = scanner.next();
+        System.out.print("Digite sua senha: ");
+        String senha = scanner.next();
+
+        boolean acesso = false;
+        for (int i = 0; i < 6; i++) {
+            if (usuarios[i][0].equals(login) && usuarios[i][1].equals(senha)) {
+                acesso = true;
+                break;
+            }
+        }
+
+        if (acesso) {
+            System.out.println("Acesso permitido!");
+        } else {
+            System.out.println("Login ou senha incorretos.");
+        }
+
+        scanner.close();
+    }
+}
+
+
+ 3. Transposição de Matriz (N x M)
+
+import java.util.Scanner;
+
+public class TransposicaoMatriz {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Digite o número de linhas: ");
+        int linhas = scanner.nextInt();
+        System.out.print("Digite o número de colunas: ");
+        int colunas = scanner.nextInt();
+        
+        int[][] matriz = new int[linhas][colunas];
+        int[][] transposta = new int[colunas][linhas]; // Invertido
+        
+        System.out.println("Digite os elementos da matriz:");
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                matriz[i][j] = scanner.nextInt();
+            }
+        }
+
+        for (int i = 0; i < linhas; i++) {
+            for (int j = 0; j < colunas; j++) {
+                transposta[j][i] = matriz[i][j]; // Inverte posições
+            }
+        }
+
+        System.out.println("Matriz Transposta:");
+        for (int i = 0; i < colunas; i++) {
+            for (int j = 0; j < linhas; j++) {
+                System.out.print(transposta[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+        scanner.close();
+    }
+}
