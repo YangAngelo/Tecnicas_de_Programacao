@@ -1,0 +1,67 @@
+class Computador {
+    String processador;
+    String placaMae;
+    int memoriaRam;
+
+    public Computador(String processador, String placaMae, int memoriaRam) {
+        this.processador = processador;
+        this.placaMae = placaMae;
+        this.memoriaRam = memoriaRam;
+    }
+
+    void ligar() { System.out.println("Computador ligado"); }
+    void desligar() { System.out.println("Computador desligado"); }
+    void exibirEspecificacoes() {
+        System.out.println("Processador: " + processador + ", Placa-mãe: " + placaMae + ", RAM: " + memoriaRam + "GB");
+    }
+}
+
+class Telescopio {
+    String lentes;
+    String tuboOptico;
+    String montagem;
+
+    public Telescopio(String lentes, String tuboOptico, String montagem) {
+        this.lentes = lentes;
+        this.tuboOptico = tuboOptico;
+        this.montagem = montagem;
+    }
+
+    void observarEstrelas() { System.out.println("Observando estrelas..."); }
+    void ajustarFoco() { System.out.println("Ajustando o foco"); }
+    void limparLentes() { System.out.println("Lentes limpas"); }
+}
+
+class Girafa {
+    double altura;
+    String padraoManchas;
+    boolean herbivora;
+
+    public Girafa(double altura, String padraoManchas, boolean herbivora) {
+        this.altura = altura;
+        this.padraoManchas = padraoManchas;
+        this.herbivora = herbivora;
+    }
+
+    void comerFolhas() { System.out.println("A girafa está comendo folhas"); }
+    void correr() { System.out.println("A girafa está correndo"); }
+    void dormir() { System.out.println("A girafa está dormindo"); }
+}
+
+class Gravura {
+    String matriz;
+    String tinta;
+    String suporte;
+
+    public Gravura(String matriz, String tinta, String suporte) {
+        this.matriz = matriz;
+        this.tinta = tinta;
+        this.suporte = suporte;
+    }
+
+    void imprimir() { System.out.println("Imprimindo gravura..."); }
+    void limparMatriz() { System.out.println("Limpando matriz"); }
+    void exibirGravura() { System.out.println("Exibindo gravura"); }
+}
+
+// Adicione as demais classes seguindo o mesmo padrão...
